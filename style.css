@@ -1,0 +1,641 @@
+/* ═══════════════════════════════════════════
+   ST Fanfic Director — style.css v2
+   Extensions drawer only + persona speech field
+   ═══════════════════════════════════════════ */
+
+/* ─── Extensions drawer body ─── */
+.fd-ext-settings .fd-settings-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 4px 0 6px;
+}
+
+/* ─── Field group ─── */
+.fd-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* ─── Label ─── */
+.fd-label {
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.85);
+    opacity: 0.75;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.fd-ctx-value {
+    font-weight: 700;
+    color: var(--SmartThemeQuoteColor, #7ecfff);
+    opacity: 1;
+    margin-left: 4px;
+    min-width: 1.6em;
+    text-align: center;
+}
+
+/* ─── Text inputs & selects ─── */
+.fd-input,
+.fd-select {
+    width: 100%;
+    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 60%, transparent 40%);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 5px;
+    color: var(--SmartThemeBodyColor);
+    font-family: inherit;
+    font-size: inherit;
+    padding: 5px 8px;
+    transition: border-color 0.15s;
+    box-sizing: border-box;
+}
+
+.fd-input:focus,
+.fd-select:focus {
+    border-color: var(--SmartThemeQuoteColor, #7ecfff);
+    outline: none;
+}
+
+/* ─── Model row: select + refresh btn ─── */
+.fd-model-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.fd-model-row .fd-select {
+    flex: 1;
+    min-width: 0;
+}
+
+.fd-icon-btn {
+    flex-shrink: 0;
+    padding: 4px 8px;
+    font-size: 1rem;
+    min-width: 36px;
+    cursor: pointer;
+}
+
+/* ─── Range slider ─── */
+.fd-range-input {
+    width: 100%;
+    accent-color: var(--SmartThemeQuoteColor, #7ecfff);
+    cursor: pointer;
+    height: 4px;
+    margin: 6px 0 2px;
+}
+
+/* ─── Divider ─── */
+.fd-divider {
+    border: none;
+    border-top: 1px solid var(--SmartThemeBorderColor);
+    opacity: 0.3;
+    margin: 4px 0;
+}
+
+/* ─── Actions row ─── */
+.fd-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.fd-actions .menu_button {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.9);
+}
+
+/* ─── Radio group (Options For / Person) ─── */
+.fd-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.fd-radio-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--SmartThemeBorderColor, rgba(255,255,255,0.15));
+    background: color-mix(in srgb, var(--SmartThemeBlurTintColor) 60%, transparent 40%);
+    cursor: pointer;
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.85);
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.fd-radio-label:hover {
+    border-color: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 50%, transparent 50%);
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 8%, var(--SmartThemeBlurTintColor) 92%);
+}
+
+.fd-radio-label:has(input:checked) {
+    border-color: var(--SmartThemeQuoteColor, #7ecfff);
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 18%, var(--SmartThemeBlurTintColor) 82%);
+    color: var(--SmartThemeBodyColor);
+}
+
+.fd-radio-label input[type="radio"] {
+    display: none;
+}
+
+/* ─── Preset toolbar ─── */
+.fd-preset-toolbar {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.fd-preset-select {
+    flex: 1;
+    min-width: 0;
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.85);
+}
+
+/* ─── Prompt textarea ─── */
+.fd-prompt-textarea {
+    width: 100%;
+    min-height: 90px;
+    resize: vertical;
+    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 60%, transparent 40%);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 5px;
+    color: var(--SmartThemeBodyColor);
+    font-family: monospace;
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.8);
+    padding: 7px 9px;
+    line-height: 1.5;
+    transition: border-color 0.15s;
+    box-sizing: border-box;
+}
+.fd-prompt-textarea:focus {
+    border-color: var(--SmartThemeQuoteColor, #7ecfff);
+    outline: none;
+}
+
+.fd-prompt-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2px;
+}
+
+/* ─── Options block header (label + regen btn) ─── */
+.fd-options-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2px 4px;
+}
+
+.fd-regen-btn {
+    background: none;
+    border: 1px solid color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 25%, transparent 75%);
+    border-radius: 6px;
+    color: var(--SmartThemeBodyColor);
+    opacity: 0.6;
+    padding: 3px 7px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: opacity 0.15s, border-color 0.15s, transform 0.15s;
+}
+.fd-regen-btn:hover {
+    opacity: 1;
+    border-color: var(--SmartThemeQuoteColor, #7ecfff);
+    transform: rotate(30deg);
+}
+.fd-regen-btn:active { transform: rotate(180deg); }
+
+/* ─── Compact option row: button + pencil ─── */
+.fd-option-row {
+    display: flex;
+    align-items: stretch;
+    gap: 5px;
+}
+
+.fd-option-row .fd-option-btn {
+    flex: 1;
+}
+
+.fd-option-edit-btn {
+    flex-shrink: 0;
+    background: none;
+    border: 1px solid color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 20%, transparent 80%);
+    border-radius: 6px;
+    color: var(--SmartThemeBodyColor);
+    opacity: 0.5;
+    padding: 6px 9px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: opacity 0.15s, border-color 0.15s, background 0.15s;
+}
+.fd-option-edit-btn:hover {
+    opacity: 1;
+    border-color: var(--SmartThemeQuoteColor, #7ecfff);
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 10%, transparent 90%);
+}
+
+/* ─── Inline edit panel (inside .fd-option-row--editing) ─── */
+.fd-option-row--editing {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+}
+
+.fd-option-edit-ta {
+    width: 100%;
+    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 60%, transparent 40%);
+    border: 1px solid var(--SmartThemeQuoteColor, #7ecfff);
+    border-radius: 6px;
+    color: var(--SmartThemeBodyColor);
+    font-family: var(--mainFontFamily, inherit);
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.9);
+    padding: 8px 10px;
+    line-height: 1.5;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.fd-option-edit-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+}
+
+.fd-option-edit-actions .menu_button {
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.85);
+    padding: 4px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ─── Expanded card footer (pencil + send) ─── */
+.fd-option-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    padding: 4px 12px 10px;
+}
+
+/* Pencil toggle for expanded cards */
+.fd-option-card__edit {
+    background: none;
+    border: 1px solid color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 20%, transparent 80%);
+    border-radius: 6px;
+    color: var(--SmartThemeBodyColor);
+    opacity: 0.5;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: opacity 0.15s, border-color 0.15s, background 0.15s;
+}
+.fd-option-card__edit:hover,
+.fd-option-card__edit--active {
+    opacity: 1;
+    border-color: var(--SmartThemeQuoteColor, #7ecfff);
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 12%, transparent 88%);
+}
+
+/* Editable body state */
+.fd-option-card__body--editing {
+    border: 1px solid var(--SmartThemeQuoteColor, #7ecfff) !important;
+    border-radius: 4px;
+    outline: none;
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 5%, var(--SmartThemeBlurTintColor) 95%);
+    padding: 10px 14px;
+    cursor: text;
+}
+
+/* ═══════════════════════════════════════════
+   PERSONA SPEECH FIELD
+   (injected into ST's persona management panel)
+   ═══════════════════════════════════════════ */
+
+.fd-persona-speech-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--SmartThemeBorderColor, rgba(255,255,255,0.1));
+}
+
+.fd-persona-speech-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.85);
+    opacity: 0.75;
+    flex-wrap: wrap;
+}
+
+.fd-persona-speech-persona-name {
+    font-size: 0.85em;
+    opacity: 0.55;
+    font-style: italic;
+    color: var(--SmartThemeQuoteColor, #7ecfff);
+    margin-left: 2px;
+}
+
+.fd-persona-speech-macro {
+    font-family: monospace;
+    font-size: 0.85em;
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 12%, transparent 88%);
+    border: 1px solid color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 30%, transparent 70%);
+    border-radius: 4px;
+    padding: 1px 5px;
+    color: var(--SmartThemeQuoteColor, #7ecfff);
+    opacity: 1;
+}
+
+.fd-persona-speech-textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 60%, transparent 40%);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 5px;
+    color: var(--SmartThemeBodyColor);
+    font-family: inherit;
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.9);
+    padding: 7px 10px;
+    line-height: 1.5;
+    transition: border-color 0.15s;
+    box-sizing: border-box;
+}
+
+.fd-persona-speech-textarea:focus {
+    border-color: var(--SmartThemeQuoteColor, #7ecfff);
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 12%, transparent 88%);
+}
+
+.fd-persona-speech-hint {
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.78);
+    opacity: 0.5;
+    line-height: 1.4;
+}
+
+.fd-persona-speech-hint code {
+    font-family: monospace;
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 10%, transparent 90%);
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: var(--SmartThemeQuoteColor, #7ecfff);
+    font-size: 0.95em;
+}
+
+/* ═══════════════════════════════════════════
+   OPTIONS BLOCK (below chat messages)
+   ═══════════════════════════════════════════ */
+
+.fd-options-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 16px 18px;
+    margin: 8px 0 4px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.fd-options-block.fd-options-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ─ Loading state ─ */
+.fd-options-loader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    color: var(--SmartThemeBodyColor);
+    opacity: 0.65;
+}
+
+.fd-loader-dots {
+    font-size: 1.4rem;
+    animation: fd-pulse-hex 1.8s ease-in-out infinite;
+    display: inline-block;
+    color: var(--SmartThemeQuoteColor, #7ecfff);
+    filter: drop-shadow(0 0 6px var(--SmartThemeQuoteColor, #7ecfff));
+}
+
+@keyframes fd-pulse-hex {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+    50%       { transform: scale(1.25) rotate(30deg); opacity: 1; }
+}
+
+.fd-loader-text {
+    font-style: italic;
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.95);
+    letter-spacing: 0.02em;
+    opacity: 0.85;
+}
+
+.fd-loader-animated-dots {
+    display: inline-block;
+    min-width: 1.6em;
+    color: var(--SmartThemeQuoteColor, #7ecfff);
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+/* ─ Label ─ */
+.fd-options-label {
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.45;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 2px;
+}
+
+/* ─ Options grid ─ */
+.fd-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+/* ─ Individual option button ─ */
+.fd-option-btn {
+    width: 100%;
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 8%, var(--SmartThemeBlurTintColor) 92%),
+        color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 3%, var(--SmartThemeBlurTintColor) 97%)
+    );
+    border: 1px solid color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 25%, transparent 75%);
+    border-radius: 8px;
+    color: var(--SmartThemeBodyColor);
+    font-family: var(--mainFontFamily, inherit);
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.95);
+    text-align: left;
+    padding: 10px 14px;
+    cursor: pointer;
+    line-height: 1.4;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.fd-option-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+}
+
+.fd-option-btn:hover {
+    border-color: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 60%, transparent 40%);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 20%, transparent 80%);
+    transform: translateX(3px);
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 16%, var(--SmartThemeBlurTintColor) 84%),
+        color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 8%, var(--SmartThemeBlurTintColor) 92%)
+    );
+}
+
+.fd-option-btn:hover::before { transform: translateX(100%); }
+.fd-option-btn:active         { transform: translateX(3px) scale(0.98); }
+
+/* ─ "Generate Options" trigger button ─ */
+.fd-generate-btn {
+    display: flex;
+    margin: 8px auto 4px;
+    padding: 8px 20px;
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 12%, var(--SmartThemeBlurTintColor) 88%),
+        color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 5%, var(--SmartThemeBlurTintColor) 95%)
+    );
+    border: 1px solid color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 35%, transparent 65%);
+    border-radius: 20px;
+    color: var(--SmartThemeBodyColor);
+    font-family: var(--mainFontFamily, inherit);
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.9);
+    cursor: pointer;
+    gap: 7px;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    box-shadow: 0 0 8px color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 15%, transparent 85%);
+    animation: fd-btn-appear 0.3s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fd-btn-appear {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.fd-generate-btn:hover {
+    border-color: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 65%, transparent 35%);
+    box-shadow: 0 0 16px color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 30%, transparent 70%);
+    transform: translateY(-1px);
+}
+
+.fd-generate-btn:active { transform: translateY(1px); }
+
+/* ═══════════════════════════════════════════
+   EXPANDED OPTION CARDS
+   ═══════════════════════════════════════════ */
+
+.fd-options-grid--expanded {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fd-option-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 22%, transparent 78%);
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 7%, var(--SmartThemeBlurTintColor) 93%),
+        color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 2%, var(--SmartThemeBlurTintColor) 98%)
+    );
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.fd-option-card:hover {
+    border-color: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 55%, transparent 45%);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 18%, transparent 82%);
+}
+
+/* ── Card title bar ── */
+.fd-option-card__title {
+    padding: 9px 14px 8px;
+    font-weight: 700;
+    font-size: calc(var(--mainFontSize, 0.95rem) * 1.0);
+    color: var(--SmartThemeQuoteColor, #7ecfff);
+    border-bottom: 1px solid color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 18%, transparent 82%);
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 6%, transparent 94%);
+}
+
+/* ── Card narrative body ── */
+.fd-option-card__body {
+    padding: 11px 14px 10px;
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.9);
+    line-height: 1.6;
+    color: var(--SmartThemeBodyColor);
+    opacity: 0.88;
+    white-space: pre-wrap;
+    max-height: 16em;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 30%, transparent 70%) transparent;
+}
+
+/* ── Send button ── */
+.fd-option-card__choose {
+    align-self: flex-end;
+    margin: 0 12px 10px auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 15%, var(--SmartThemeBlurTintColor) 85%);
+    border: 1px solid color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 40%, transparent 60%);
+    border-radius: 16px;
+    color: var(--SmartThemeBodyColor);
+    font-family: var(--mainFontFamily, inherit);
+    font-size: calc(var(--mainFontSize, 0.95rem) * 0.85);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease;
+}
+
+.fd-option-card__choose:hover {
+    background: color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 28%, var(--SmartThemeBlurTintColor) 72%);
+    border-color: var(--SmartThemeQuoteColor, #7ecfff);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--SmartThemeQuoteColor, #7ecfff) 25%, transparent 75%);
+    transform: translateY(-1px);
+}
+
+.fd-option-card__choose:active { transform: translateY(1px); }
