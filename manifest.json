@@ -1,0 +1,12 @@
+{
+    "display_name": "Fanfic Director",
+    "loading_order": 10,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "antihype",
+    "version": "0.1.0",
+    "homePage": "",
+    "auto_update": false
+}
